@@ -27,7 +27,7 @@ func TestMain(t *testing.T) {
 
 	err = pool.Retry(func() error {
 		fmt.Println("pool", resource.GetPort("8080/tcp"))
-		resp, err = http.Get("http://localhost:8080/")
+		resp, err = http.Get(fmt.Sprint("http://localhost:", resource.GetPort("8080/tcp"), "/"))
 		fmt.Println("pool", err, resp)
 		if err != nil {
 			t.Log("container not ready, waiting...")
