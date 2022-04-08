@@ -23,9 +23,6 @@ jobs:
 
     - name: Fetch required Go modules
       run:  go mod download
-    
-    - name: Unit Test
-      run: go test -v ./...
 
     - name: Build Docker image
       uses: docker/build-push-action@v2
